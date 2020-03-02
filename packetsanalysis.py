@@ -9,7 +9,6 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 localAddress = ""+s.getsockname()[0]
 
-
 def pkt_analysis():
 	packets = rdpcap('mypcap.pcap')
 
@@ -19,7 +18,6 @@ def pkt_analysis():
 		inData = 0
 		ouData = 0
 		payloadL = 0
-
 
 		if Raw in pkt:
 			payloadL = len(pkt[Raw])
@@ -52,7 +50,6 @@ def pkt_analysis():
 
 			dictionary.update({key: ((tcpin,tcpou),(udpin,udpou),(icmpin,icmpou))})
 
-	 
 	x = dictionary.keys()
 
 	valueslist = dictionary.values()
@@ -83,7 +80,6 @@ def pkt_analysis():
 		mlist[3] = [x / 1000 for x in mlist[3]]
 		totalTransf = [x / 1000 for x in totalTransf]
 		xlabel = "KBytes"
-
 
 	plt.barh(ipOrdered, mlist[0], color="red")
 	plt.barh(ipOrdered, mlist[1], color="orange", left=mlist[0])
