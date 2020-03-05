@@ -97,7 +97,6 @@ def pkt_analysis():
 
 	plt.tight_layout()
 	plt.savefig('ima_final.png')
-	plt.show()
 
 if len(sys.argv) < 3:
 	print("invalid arguments, specify networkcard name and packet count")
